@@ -2,7 +2,7 @@
 
 # one-stop-shop-exclusions-journey-tests
 
-<SERVICE_NAME> UI journey tests.
+`one-stop-shop-exclusions-frontend` UI journey tests.
 
 ## Pre-requisites
 
@@ -17,7 +17,7 @@ docker run --rm -d -p 27017:27017 --name mongo percona/percona-server-mongodb:5.
 Start `<SERVICE_MANAGER_PROFILE>` services as follows:
 
 ```bash
-sm2 --start <SERVICE_MANAGER_PROFILE>
+sm2 --start ONE_STOP_SHOP-ALL
 ```
 
 ## Tests
