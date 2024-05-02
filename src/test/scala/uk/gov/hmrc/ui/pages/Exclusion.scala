@@ -26,9 +26,8 @@ import java.time.LocalDate
 
 object Exclusion extends BasePage {
 
-  private val exclusionsUrl: String =
-    TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu"
-  private val journeyUrl: String    = "/leave-one-stop-shop"
+  private val exclusionsUrl: String = TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu"
+  private val journeyUrl: String = "/leave-one-stop-shop"
 
   def goToExclusionsJourney(): Unit =
     get(exclusionsUrl + journeyUrl)
@@ -40,8 +39,8 @@ object Exclusion extends BasePage {
 
     answer match {
       case "yes" => click(By.id("value"))
-      case "no"  => click(By.id("value-no"))
-      case _     => throw new Exception("Option doesn't exist")
+      case "no" => click(By.id("value-no"))
+      case _ => throw new Exception("Option doesn't exist")
     }
     click(continueButton)
   }
