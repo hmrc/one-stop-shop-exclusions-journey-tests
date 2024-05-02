@@ -20,6 +20,8 @@ import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.{BeforeAndAfterEach, GivenWhenThen}
 import uk.gov.hmrc.selenium.webdriver.{Browser, ScreenshotOnFailure}
+import uk.gov.hmrc.ui.data.RegistrationData
+import uk.gov.hmrc.ui.utils.MongoConnection
 
 trait BaseSpec
     extends AnyFeatureSpec
@@ -29,8 +31,11 @@ trait BaseSpec
     with Browser
     with ScreenshotOnFailure {
 
-  override def beforeEach(): Unit =
+  override def beforeEach(): Unit = {
+    MongoConnection.dropRegistrations()
+    MongoConnection.insert(RegistrationData.data, "one-stop-shop-registration", "registrations")
     startBrowser()
+  }
 
   override def afterEach(): Unit =
     quitBrowser()
