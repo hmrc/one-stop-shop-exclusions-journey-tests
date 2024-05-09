@@ -23,8 +23,9 @@ import uk.gov.hmrc.configuration.TestEnvironment
 
 object Auth extends BasePage {
 
-  private val authUrl: String = TestEnvironment.url("auth-login-stub") + "/gg-sign-in"
-  private val exclusionsUrl: String = TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu"
+  private val authUrl: String       = TestEnvironment.url("auth-login-stub") + "/gg-sign-in"
+  private val exclusionsUrl: String =
+    TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu"
 
   def loginUsingAuthorityWizard(vrn: String): Unit = {
 
@@ -45,6 +46,5 @@ object Auth extends BasePage {
     click(By.cssSelector("Input[value='Submit']"))
 
   }
-
 
 }
