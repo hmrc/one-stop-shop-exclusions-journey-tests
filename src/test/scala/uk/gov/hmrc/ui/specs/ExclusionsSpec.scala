@@ -21,7 +21,7 @@ import uk.gov.hmrc.ui.pages.{Auth, Exclusion}
 class ExclusionsSpec extends BaseSpec {
 
   private val exclusion = Exclusion
-  private val auth = Auth
+  private val auth      = Auth
 
   Feature("Exclusion journeys") {
 
