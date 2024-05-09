@@ -33,14 +33,15 @@ object MongoConnection {
   }
 
   def dropRecord(db: String, collection: String, vrn: String): Unit =
-    try Await.result(
-      mongoClient
-        .getDatabase(db)
-        .getCollection(collection)
-        .deleteMany(filter = Filters.equal("vrn", vrn))
-        .head(),
-      timeout
-    )
+    try
+      Await.result(
+        mongoClient
+          .getDatabase(db)
+          .getCollection(collection)
+          .deleteMany(filter = Filters.equal("vrn", vrn))
+          .head(),
+        timeout
+      )
     catch {
       case e: Exception => println("Error: " + e)
     }
@@ -60,8 +61,7 @@ object MongoConnection {
       case ex: Exception => println(s"Error inserting data into MongoDB: $ex")
     }
 
-  def dropRegistrations(): Unit = {
+  def dropRegistrations(): Unit =
     dropRecord("one-stop-shop-registration", "registrations", "100000500")
 
-  }
 }

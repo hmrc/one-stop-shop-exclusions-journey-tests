@@ -55,5 +55,4 @@ object Auth extends BasePage {
 
   }
 
-
 }
