@@ -68,13 +68,6 @@ object Exclusion extends BasePage {
     click(continueButton)
   }
 
-  def enterDate(): Unit = {
-    sendKeys(By.id("value.day"), LocalDate.now().getDayOfMonth.toString)
-    sendKeys(By.id("value.month"), LocalDate.now().getMonthValue.toString)
-    sendKeys(By.id("value.year"), LocalDate.now().getYear.toString)
-    click(continueButton)
-  }
-
   def selectCountry(country: String): Unit = {
     sendKeys(By.id("value"), country)
     click(By.cssSelector("li#value__option--0"))
@@ -102,8 +95,5 @@ object Exclusion extends BasePage {
 
   def goToReturnsJourney(): Unit =
     get(returnsUrl + returnsJourneyUrl)
-
-  def continue(): Unit =
-    click(continueButton)
 
 }
