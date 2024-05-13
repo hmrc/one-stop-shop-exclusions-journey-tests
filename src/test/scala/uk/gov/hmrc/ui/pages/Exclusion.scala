@@ -16,10 +16,11 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
+import org.openqa.selenium.{By, Keys}
 import org.scalatest.matchers.dsl.MatcherWords.not.startWith
 import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
 import uk.gov.hmrc.configuration.TestEnvironment
+import uk.gov.hmrc.selenium.webdriver.Driver
 
 import java.time.LocalDate
 
@@ -45,11 +46,21 @@ object Exclusion extends BasePage {
     click(continueButton)
   }
 
-  def enterDate(): Unit = {
-    sendKeys(By.id("value.day"), LocalDate.now().getDayOfMonth.toString)
-    sendKeys(By.id("value.month"), LocalDate.now().getMonthValue.toString)
-    sendKeys(By.id("value.year"), LocalDate.now().getYear.toString)
+  def enterDate(day: String): Unit = {
+
+    val date =
+      if (day == "today") {
+        LocalDate.now()
+      } else {
+        LocalDate.now().plusDays(1)
+      }
+
+    sendKeys(By.id("value.day"), date.getDayOfMonth.toString)
+    sendKeys(By.id("value.month"), date.getMonthValue.toString)
+    sendKeys(By.id("value.year"), date.getYear.toString)
+
     click(continueButton)
+
   }
 
   def selectCountry(country: String): Unit = {
@@ -58,10 +69,21 @@ object Exclusion extends BasePage {
     click(continueButton)
   }
 
+  def clearCountry(): Unit = {
+    val input = Driver.instance.findElement(By.id("value")).getAttribute("value")
+    if (input != null) {
+      for (n <- input)
+        Driver.instance.findElement(By.id("value")).sendKeys(Keys.BACK_SPACE)
+    }
+  }
+
   def enterVatNumber(vatNumber: String): Unit = {
     sendKeys(By.id("value"), vatNumber)
     click(continueButton)
   }
+
+  def selectChangeLink(link: String): Unit =
+    click(By.cssSelector(s"a[href*=$link]"))
 
   def continue(): Unit =
     click(continueButton)

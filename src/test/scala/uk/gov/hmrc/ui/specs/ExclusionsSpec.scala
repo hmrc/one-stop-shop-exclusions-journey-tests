@@ -41,7 +41,7 @@ class ExclusionsSpec extends BaseSpec {
 
       And("the trader enters today's date on the move-date page")
       exclusion.checkJourneyUrl("move-date")
-      exclusion.enterDate()
+      exclusion.enterDate("today")
 
       And("the trader enters VAT number ATU12345678 on the eu-vat-number page")
       exclusion.checkJourneyUrl("eu-vat-number")
@@ -72,7 +72,7 @@ class ExclusionsSpec extends BaseSpec {
 
       And("the trader enters today's date on the stopped-selling-goods-date page")
       exclusion.checkJourneyUrl("stopped-selling-goods-date")
-      exclusion.enterDate()
+      exclusion.enterDate("today")
 
       Then("the trader is on the successful page")
       exclusion.checkJourneyUrl("successful")
@@ -99,7 +99,7 @@ class ExclusionsSpec extends BaseSpec {
 
       And("the trader enters today's date on the stopped-using-service-date page")
       exclusion.checkJourneyUrl("stopped-using-service-date")
-      exclusion.enterDate()
+      exclusion.enterDate("today")
 
       Then("the trader is on the successful page")
       exclusion.checkJourneyUrl("successful")
