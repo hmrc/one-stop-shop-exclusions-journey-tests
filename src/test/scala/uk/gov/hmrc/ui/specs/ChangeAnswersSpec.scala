@@ -29,7 +29,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
-      auth.loginUsingAuthorityWizard("100000500")
+      auth.loginUsingAuthorityWizard("100000002")
       exclusion.checkJourneyUrl("move-country")
 
       When("the trader selects yes on the move-country page")
@@ -68,7 +68,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
-      auth.loginUsingAuthorityWizard("100000500")
+      auth.loginUsingAuthorityWizard("100000002")
       exclusion.checkJourneyUrl("move-country")
 
       When("the trader selects yes on the move-country page")
@@ -107,7 +107,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
-      auth.loginUsingAuthorityWizard("100000500")
+      auth.loginUsingAuthorityWizard("100000002")
       exclusion.checkJourneyUrl("move-country")
 
       When("the trader selects yes on the move-country page")
