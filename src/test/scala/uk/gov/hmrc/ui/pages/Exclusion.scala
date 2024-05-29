@@ -39,6 +39,9 @@ object Exclusion extends BasePage {
   def goToExclusionsJourney(): Unit =
     get(exclusionsUrl + journeyUrl)
 
+  def goToReversalsJourney(): Unit =
+    get(exclusionsUrl + "/cancel-leave-scheme")
+
   def checkJourneyUrl(page: String): Unit =
     getCurrentUrl should startWith(s"$exclusionsUrl/$journeyUrl/$page")
 
@@ -94,6 +97,12 @@ object Exclusion extends BasePage {
     click(continueButton)
 
   def goToReturnsJourney(): Unit =
-    get(returnsUrl + returnsJourneyUrl)
+    get(returnsUrl)
+
+  def checkReturnsJourneyUrl(page: String): Unit =
+    getCurrentUrl should startWith(s"$returnsUrl/$returnsJourneyUrl/$page")
+
+  def selectLink(link: String): Unit =
+    click(By.id(link))
 
 }
