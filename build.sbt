@@ -1,5 +1,5 @@
 lazy val root = (project in file("."))
-  .disablePlugins(JUnitXmlReportPlugin) //Required to prevent https://github.com/scalatest/scalatest/issues/1427
+  .disablePlugins(JUnitXmlReportPlugin)
   .settings(
     name := "one-stop-shop-exclusions-journey-tests",
     version := "0.1.0",
