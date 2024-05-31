@@ -25,13 +25,21 @@ object Auth extends BasePage {
 
   private val authUrl: String       = TestEnvironment.url("auth-login-stub") + "/gg-sign-in"
   private val exclusionsUrl: String =
-    TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu"
+    TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu/leave-one-stop-shop"
+  private val returnsUrl: String    =
+    TestEnvironment.url(
+      "one-stop-shop-returns-frontend"
+    ) + "/pay-vat-on-goods-sold-to-eu/northern-ireland-returns-payments"
 
-  def loginUsingAuthorityWizard(vrn: String): Unit = {
+  def loginUsingAuthorityWizard(journey: String, vrn: String): Unit = {
 
     getCurrentUrl should startWith(authUrl)
 
-    sendKeys(By.name("redirectionUrl"), exclusionsUrl + "/leave-one-stop-shop/move-country")
+    if (journey == "exclusions") {
+      sendKeys(By.name("redirectionUrl"), exclusionsUrl)
+    } else {
+      sendKeys(By.name("redirectionUrl"), returnsUrl)
+    }
 
     selectByValue(By.id("affinityGroupSelect"), "Organisation")
 

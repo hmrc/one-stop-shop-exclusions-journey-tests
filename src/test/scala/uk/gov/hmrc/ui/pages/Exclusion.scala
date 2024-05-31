@@ -30,6 +30,12 @@ object Exclusion extends BasePage {
     TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu"
   private val journeyUrl: String    = "/leave-one-stop-shop"
 
+  private val returnsUrl: String        =
+    TestEnvironment.url(
+      "one-stop-shop-returns-frontend"
+    ) + "/pay-vat-on-goods-sold-to-eu/northern-ireland-returns-payments"
+  private val returnsJourneyUrl: String = "/your-account"
+
   def goToExclusionsJourney(): Unit =
     get(exclusionsUrl + journeyUrl)
 
@@ -87,5 +93,8 @@ object Exclusion extends BasePage {
 
   def continue(): Unit =
     click(continueButton)
+
+  def goToReturnsJourney(): Unit =
+    get(returnsUrl + returnsJourneyUrl)
 
 }
