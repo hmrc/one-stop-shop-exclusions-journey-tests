@@ -88,5 +88,20 @@ class ReversalsSpec extends BaseSpec {
 
     }
 
+    Scenario("HMRC excluded trader is not able to access reversal journey") {
+
+      Given("the excluded trader accesses the OSS Returns Service")
+      exclusion.goToReturnsJourney()
+      auth.loginUsingAuthorityWizard("returns", "100000030")
+      exclusion.checkReturnsJourneyUrl("your-account")
+
+      When("the trader manually navigates to the reversal journey")
+      exclusion.goToReversalsJourney()
+
+      Then("the trader is on the cancel-leave-scheme-error page")
+      exclusion.checkJourneyUrl("cancel-leave-scheme-error")
+
+    }
+
   }
 }
