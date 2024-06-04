@@ -100,6 +100,7 @@ class ReversalsSpec extends BaseSpec {
 
       Then("the trader is on the cancel-leave-scheme-error page")
       exclusion.checkJourneyUrl("cancel-leave-scheme-error")
+      exclusion.checkCancelLeaveSchemeError()
 
     }
 

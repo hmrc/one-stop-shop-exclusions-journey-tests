@@ -16,6 +16,7 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.junit.Assert
 import org.openqa.selenium.{By, Keys}
 import org.scalatest.matchers.dsl.MatcherWords.not.startWith
 import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
@@ -40,7 +41,7 @@ object Exclusion extends BasePage {
     get(exclusionsUrl + journeyUrl)
 
   def goToReversalsJourney(): Unit =
-    get(exclusionsUrl + "/cancel-leave-scheme")
+    get(exclusionsUrl + journeyUrl + "/cancel-leave-scheme")
 
   def checkJourneyUrl(page: String): Unit =
     getCurrentUrl should startWith(s"$exclusionsUrl/$journeyUrl/$page")
@@ -105,4 +106,9 @@ object Exclusion extends BasePage {
   def selectLink(link: String): Unit =
     click(By.id(link))
 
+  def checkCancelLeaveSchemeError(): Unit = {
+    val h1 = Driver.instance.findElement(By.tagName("h1")).getText
+    println(h1)
+    Assert.assertTrue(h1.equals("You can no longer cancel your request to leave the One Stop Shop scheme"))
+  }
 }

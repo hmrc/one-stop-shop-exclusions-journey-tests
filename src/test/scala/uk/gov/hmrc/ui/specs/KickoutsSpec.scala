@@ -50,7 +50,7 @@ class KickoutsSpec extends BaseSpec {
       When("the trader manually navigates to the self-exclude journey")
       exclusion.goToReversalsJourney()
 
-      Then("the trader is on the already-left-scheme-error page")
+      Then("the trader is on the cannot-use-this-service page")
       exclusion.checkJourneyUrl("cannot-use-this-service")
 
     }
