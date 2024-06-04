@@ -105,6 +105,33 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("successful")
 
     }
+
+    Scenario("Trader who has reversed their exclusion can leave the service again") {
+
+      Given("the trader accesses the OSS Exclusions Service")
+      exclusion.goToExclusionsJourney()
+      auth.loginUsingAuthorityWizard("exclusions", "100000029")
+      exclusion.checkJourneyUrl("move-country")
+
+      When("the trader selects no on the move-country page")
+      exclusion.answerRadioButton("no")
+
+      And("the trader selects no on the stop-selling-goods page")
+      exclusion.checkJourneyUrl("stop-selling-goods")
+      exclusion.answerRadioButton("no")
+
+      And("the trader selects yes on the leave-scheme page")
+      exclusion.checkJourneyUrl("leave-scheme")
+      exclusion.answerRadioButton("yes")
+
+      And("the trader enters today's date on the stopped-using-service-date page")
+      exclusion.checkJourneyUrl("stopped-using-service-date")
+      exclusion.enterDate("today")
+
+      Then("the trader is on the successful page")
+      exclusion.checkJourneyUrl("successful")
+
+    }
   }
 
 }
