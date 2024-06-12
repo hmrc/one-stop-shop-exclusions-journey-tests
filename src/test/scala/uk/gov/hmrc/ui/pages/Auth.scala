@@ -31,7 +31,7 @@ object Auth extends BasePage {
       "one-stop-shop-returns-frontend"
     ) + "/pay-vat-on-goods-sold-to-eu/northern-ireland-returns-payments"
 
-  def loginUsingAuthorityWizard(journey: String, vrn: String): Unit = {
+  def loginUsingAuthorityWizard(user: String, journey: String, vrn: String): Unit = {
 
     getCurrentUrl should startWith(authUrl)
 
@@ -42,6 +42,10 @@ object Auth extends BasePage {
     }
 
     selectByValue(By.id("affinityGroupSelect"), "Organisation")
+
+    if (user == "assistant") {
+      selectByValue(By.id("credential-role-select"), "Assistant")
+    }
 
     sendKeys(By.id("enrolment[0].name"), "HMRC-MTD-VAT")
     sendKeys(By.id("input-0-0-name"), "VRN")

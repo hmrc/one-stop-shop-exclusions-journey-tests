@@ -29,7 +29,7 @@ class ReversalsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Returns Service")
       exclusion.goToReturnsJourney()
-      auth.loginUsingAuthorityWizard("returns", "100000027")
+      auth.loginUsingAuthorityWizard("user", "returns", "100000027")
       exclusion.checkReturnsJourneyUrl("your-account")
 
       When("the trader clicks on the Cancel your request to leave link")
@@ -50,7 +50,7 @@ class ReversalsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Returns Service")
       exclusion.goToReturnsJourney()
-      auth.loginUsingAuthorityWizard("returns", "600000018")
+      auth.loginUsingAuthorityWizard("user", "returns", "600000018")
       exclusion.checkReturnsJourneyUrl("your-account")
 
       When("the trader clicks on the Cancel your request to leave link")
@@ -71,7 +71,7 @@ class ReversalsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Returns Service")
       exclusion.goToReturnsJourney()
-      auth.loginUsingAuthorityWizard("returns", "100000028")
+      auth.loginUsingAuthorityWizard("user", "returns", "100000028")
       exclusion.checkReturnsJourneyUrl("your-account")
 
       When("the trader clicks on the Cancel your request to leave link")
@@ -92,7 +92,7 @@ class ReversalsSpec extends BaseSpec {
 
       Given("the excluded trader accesses the OSS Returns Service")
       exclusion.goToReturnsJourney()
-      auth.loginUsingAuthorityWizard("returns", "100000030")
+      auth.loginUsingAuthorityWizard("user", "returns", "100000030")
       exclusion.checkReturnsJourneyUrl("your-account")
 
       When("the trader manually navigates to the reversal journey")

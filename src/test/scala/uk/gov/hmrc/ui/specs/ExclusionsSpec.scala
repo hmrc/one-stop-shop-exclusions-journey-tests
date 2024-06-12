@@ -29,7 +29,7 @@ class ExclusionsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
-      auth.loginUsingAuthorityWizard("exclusions", "100000002")
+      auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
       exclusion.checkJourneyUrl("move-country")
 
       When("the trader selects yes on the move-country page")
@@ -60,7 +60,7 @@ class ExclusionsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
-      auth.loginUsingAuthorityWizard("exclusions", "100000002")
+      auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
       exclusion.checkJourneyUrl("move-country")
 
       When("the trader selects no on the move-country page")
@@ -83,7 +83,7 @@ class ExclusionsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
-      auth.loginUsingAuthorityWizard("exclusions", "100000002")
+      auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
       exclusion.checkJourneyUrl("move-country")
 
       When("the trader selects no on the move-country page")
@@ -110,7 +110,7 @@ class ExclusionsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
-      auth.loginUsingAuthorityWizard("exclusions", "100000029")
+      auth.loginUsingAuthorityWizard("user", "exclusions", "100000029")
       exclusion.checkJourneyUrl("move-country")
 
       When("the trader selects no on the move-country page")
@@ -132,6 +132,16 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("successful")
 
     }
-  }
 
+    Scenario("Trader who is an assistant user can access the exclusions service") {
+
+      Given("a assistant trader accesses the OSS Exclusions Service")
+      exclusion.goToExclusionsJourney()
+      auth.loginUsingAuthorityWizard("assistant", "exclusions", "100000002")
+
+      Then("they are correctly redirected to the move-country page")
+      exclusion.checkJourneyUrl("move-country")
+
+    }
+  }
 }
