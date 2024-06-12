@@ -29,7 +29,7 @@ class KickoutsSpec extends BaseSpec {
 
       Given("the excluded trader accesses the OSS Returns Service")
       exclusion.goToReturnsJourney()
-      auth.loginUsingAuthorityWizard("returns", "600000013")
+      auth.loginUsingAuthorityWizard("user", "returns", "600000013")
       exclusion.checkReturnsJourneyUrl("your-account")
 
       When("the trader manually navigates to the self-exclude journey")
@@ -44,7 +44,7 @@ class KickoutsSpec extends BaseSpec {
 
       Given("the excluded trader accesses the OSS Returns Service")
       exclusion.goToReturnsJourney()
-      auth.loginUsingAuthorityWizard("returns", "100000002")
+      auth.loginUsingAuthorityWizard("user", "returns", "100000002")
       exclusion.checkReturnsJourneyUrl("your-account")
 
       When("the trader manually navigates to the self-exclude journey")
@@ -59,7 +59,7 @@ class KickoutsSpec extends BaseSpec {
 
       Given("the trader accesses the OSS Returns Service")
       exclusion.goToReturnsJourney()
-      auth.loginUsingAuthorityWizard("returns", "100000300")
+      auth.loginUsingAuthorityWizard("user", "returns", "100000300")
       exclusion.checkReturnsJourneyUrl("your-account")
 
       When("the trader clicks on the Cancel your request to leave link")
