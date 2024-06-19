@@ -111,4 +111,12 @@ object Exclusion extends BasePage {
     println(h1)
     Assert.assertTrue(h1.equals("You can no longer cancel your request to leave the One Stop Shop scheme"))
   }
+
+  def goToCYA(): Unit =
+    get(s"$exclusionsUrl/check-your-answers")
+
+  def clickBackButton(): Unit =
+    Driver.instance
+      .navigate()
+      .back()
 }
