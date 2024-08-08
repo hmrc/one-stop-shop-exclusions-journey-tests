@@ -73,8 +73,13 @@ object Exclusion extends BasePage {
     click(continueButton)
   }
 
+  def waitForElement(by: By): Unit =
+    new FluentWait(Driver.instance).until(ExpectedConditions.presenceOfElementLocated(by))
+
   def selectCountry(country: String): Unit = {
-    sendKeys(By.id("value"), country)
+    val inputId = "value"
+    sendKeys(By.id(inputId), country)
+    waitForElement(By.id(inputId))
     click(By.cssSelector("li#value__option--0"))
     click(continueButton)
   }

@@ -37,6 +37,7 @@ class ExclusionsSpec extends BaseSpec {
 
       And("the trader selects Austria on the eu-country page")
       exclusion.checkJourneyUrl("eu-country")
+      exclusion.clearCountry()
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
