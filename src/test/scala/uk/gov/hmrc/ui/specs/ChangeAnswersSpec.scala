@@ -37,7 +37,6 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader selects Austria on the eu-country page")
       exclusion.checkJourneyUrl("eu-country")
-      exclusion.clearCountry()
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
@@ -77,7 +76,6 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader selects Belgium on the eu-country page")
       exclusion.checkJourneyUrl("eu-country")
-      exclusion.clearCountry()
       exclusion.selectCountry("Belgium")
 
       And("the trader enters today's date on the move-date page")
@@ -117,7 +115,6 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader selects Austria on the eu-country page")
       exclusion.checkJourneyUrl("eu-country")
-      exclusion.clearCountry()
       exclusion.selectCountry("Bulgaria")
 
       And("the trader enters today's date on the move-date page")
@@ -162,7 +159,6 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader selects Austria on the eu-country page")
       exclusion.checkJourneyUrl("eu-country")
-      exclusion.clearCountry()
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
@@ -214,7 +210,6 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader selects Austria on the eu-country page")
       exclusion.checkJourneyUrl("eu-country")
-      exclusion.clearCountry()
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
@@ -499,7 +494,6 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader selects Denmark on the eu-country page")
       exclusion.checkJourneyUrl("eu-country\\?waypoints\\=check-your-answers")
-      exclusion.clearCountry()
       exclusion.selectCountry("Denmark")
 
       And("the trader enters today's date on the move-date page")
