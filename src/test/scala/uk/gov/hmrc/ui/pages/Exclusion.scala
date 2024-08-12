@@ -17,6 +17,7 @@
 package uk.gov.hmrc.ui.pages
 
 import org.junit.Assert
+import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait}
 import org.openqa.selenium.{By, Keys}
 import org.scalatest.matchers.dsl.MatcherWords.not.startWith
 import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
@@ -72,8 +73,13 @@ object Exclusion extends BasePage {
     click(continueButton)
   }
 
+  def waitForElement(by: By): Unit =
+    new FluentWait(Driver.instance).until(ExpectedConditions.presenceOfElementLocated(by))
+
   def selectCountry(country: String): Unit = {
-    sendKeys(By.id("value"), country)
+    val inputId = "value"
+    sendKeys(By.id(inputId), country)
+    waitForElement(By.id(inputId))
     click(By.cssSelector("li#value__option--0"))
     click(continueButton)
   }

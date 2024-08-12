@@ -74,6 +74,10 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("stopped-selling-goods-date")
       exclusion.enterDate("today")
 
+      And("the trader continues on the check-your-answers page")
+      exclusion.checkJourneyUrl("check-your-answers")
+      exclusion.continue()
+
       Then("the trader is on the successful page")
       exclusion.checkJourneyUrl("successful")
 
@@ -100,6 +104,10 @@ class ExclusionsSpec extends BaseSpec {
       And("the trader enters today's date on the stopped-using-service-date page")
       exclusion.checkJourneyUrl("stopped-using-service-date")
       exclusion.enterDate("today")
+
+      And("the trader continues on the check-your-answers page")
+      exclusion.checkJourneyUrl("check-your-answers")
+      exclusion.continue()
 
       Then("the trader is on the successful page")
       exclusion.checkJourneyUrl("successful")
