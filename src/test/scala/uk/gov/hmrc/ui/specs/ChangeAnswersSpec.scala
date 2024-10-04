@@ -30,13 +30,13 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects yes on the move-country page")
+      When("the trader selects yes on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Austria on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country")
+      And("the trader selects Austria on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country")
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
@@ -59,8 +59,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -69,13 +69,13 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects yes on the move-country page")
+      When("the trader selects yes on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Belgium on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country")
+      And("the trader selects Belgium on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country")
       exclusion.selectCountry("Belgium")
 
       And("the trader enters today's date on the move-date page")
@@ -98,8 +98,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -108,13 +108,13 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects yes on the move-country page")
+      When("the trader selects yes on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Austria on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country")
+      And("the trader selects Austria on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country")
       exclusion.selectCountry("Bulgaria")
 
       And("the trader enters today's date on the move-date page")
@@ -125,12 +125,12 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("eu-vat-number")
       exclusion.enterVatNumber("BG123456789")
 
-      And("the trader clicks change on the check-your-answers page for eu-country")
+      And("the trader clicks change on the check-your-answers page for which-eu-country")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.selectChangeLink("eu-country\\?waypoints\\=check-your-answers")
+      exclusion.selectChangeLink("which-eu-country\\?waypoints\\=check-your-answers")
 
       And("the trader amends the country")
-      exclusion.checkJourneyUrl("eu-country\\?waypoints\\=check-your-answers")
+      exclusion.checkJourneyUrl("which-eu-country\\?waypoints\\=check-your-answers")
       exclusion.clearCountry()
       exclusion.selectCountry("Croatia")
 
@@ -142,8 +142,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -152,13 +152,13 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects yes on the move-country page")
+      When("the trader selects yes on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Austria on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country")
+      And("the trader selects Austria on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country")
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
@@ -169,12 +169,12 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("eu-vat-number")
       exclusion.enterVatNumber("ATU12345678")
 
-      And("the trader clicks change on the check-your-answers page for move-country")
+      And("the trader clicks change on the check-your-answers page for moving-to-an-eu-country")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.selectChangeLink("move-country\\?waypoints\\=check-your-answers")
+      exclusion.selectChangeLink("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
 
-      And("the trader changes answer to no on move-country page")
-      exclusion.checkJourneyUrl("move-country\\?waypoints\\=check-your-answers")
+      And("the trader changes answer to no on moving-to-an-eu-country page")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
       exclusion.answerRadioButton("no")
 
       And("the trader selects no on the stop-selling-goods page")
@@ -193,8 +193,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -203,13 +203,13 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects yes on the move-country page")
+      When("the trader selects yes on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Austria on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country")
+      And("the trader selects Austria on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country")
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
@@ -220,12 +220,12 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("eu-vat-number")
       exclusion.enterVatNumber("ATU12345678")
 
-      And("the trader clicks change on the check-your-answers page for move-country")
+      And("the trader clicks change on the check-your-answers page for moving-to-an-eu-country")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.selectChangeLink("move-country\\?waypoints\\=check-your-answers")
+      exclusion.selectChangeLink("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
 
-      And("the trader changes answer to no on move-country page")
-      exclusion.checkJourneyUrl("move-country\\?waypoints\\=check-your-answers")
+      And("the trader changes answer to no on moving-to-an-eu-country page")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
       exclusion.answerRadioButton("no")
 
       And("the trader selects no on the stop-selling-goods page")
@@ -240,8 +240,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -250,9 +250,9 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects yes on the stop-selling-goods page")
@@ -275,8 +275,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -285,9 +285,9 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects yes on the stop-selling-goods page")
@@ -300,14 +300,14 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader clicks change on the check-your-answers page for move country answer")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.selectChangeLink("move-country\\?waypoints\\=check-your-answers")
+      exclusion.selectChangeLink("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
 
-      And("the trader changes answer to yes on move-country page")
-      exclusion.checkJourneyUrl("move-country\\?waypoints\\=check-your-answers")
+      And("the trader changes answer to yes on moving-to-an-eu-country page")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Germany on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country\\?waypoints\\=check-your-answers")
+      And("the trader selects Germany on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country\\?waypoints\\=check-your-answers")
       exclusion.clearCountry()
       exclusion.selectCountry("Germany")
 
@@ -323,8 +323,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -333,9 +333,9 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects yes on the stop-selling-goods page")
@@ -366,8 +366,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -376,9 +376,9 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects no on the stop-selling-goods page")
@@ -405,8 +405,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -415,9 +415,9 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects no on the stop-selling-goods page")
@@ -432,16 +432,16 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("stopped-using-service-date")
       exclusion.enterDate("today")
 
-      And("the trader clicks change on the check-your-answers page for move-country")
+      And("the trader clicks change on the check-your-answers page for moving-to-an-eu-country")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.selectChangeLink("move-country\\?waypoints\\=check-your-answers")
+      exclusion.selectChangeLink("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
 
-      And("the trader changes answer to yes on move-country page")
-      exclusion.checkJourneyUrl("move-country\\?waypoints\\=check-your-answers")
+      And("the trader changes answer to yes on moving-to-an-eu-country page")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Denmark on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country\\?waypoints\\=check-your-answers")
+      And("the trader selects Denmark on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country\\?waypoints\\=check-your-answers")
       exclusion.clearCountry()
       exclusion.selectCountry("Denmark")
 
@@ -457,8 +457,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -467,9 +467,9 @@ class ChangeAnswersSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects no on the stop-selling-goods page")
@@ -484,16 +484,16 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("stopped-using-service-date")
       exclusion.enterDate("today")
 
-      And("the trader clicks change on the check-your-answers page for move-country")
+      And("the trader clicks change on the check-your-answers page for moving-to-an-eu-country")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.selectChangeLink("move-country\\?waypoints\\=check-your-answers")
+      exclusion.selectChangeLink("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
 
-      And("the trader changes answer to yes on move-country page")
-      exclusion.checkJourneyUrl("move-country\\?waypoints\\=check-your-answers")
+      And("the trader changes answer to yes on moving-to-an-eu-country page")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country\\?waypoints\\=check-your-answers")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Denmark on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country\\?waypoints\\=check-your-answers")
+      And("the trader selects Denmark on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country\\?waypoints\\=check-your-answers")
       exclusion.selectCountry("Denmark")
 
       And("the trader enters today's date on the move-date page")
@@ -508,8 +508,8 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 

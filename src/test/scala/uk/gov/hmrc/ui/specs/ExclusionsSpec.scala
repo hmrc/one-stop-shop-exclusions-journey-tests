@@ -30,13 +30,13 @@ class ExclusionsSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects yes on the move-country page")
+      When("the trader selects yes on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("yes")
 
-      And("the trader selects Austria on the eu-country page")
-      exclusion.checkJourneyUrl("eu-country")
+      And("the trader selects Austria on the which-eu-country page")
+      exclusion.checkJourneyUrl("which-eu-country")
       exclusion.selectCountry("Austria")
 
       And("the trader enters today's date on the move-date page")
@@ -51,8 +51,8 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -61,9 +61,9 @@ class ExclusionsSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects yes on the stop-selling-goods page")
@@ -78,8 +78,8 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -88,9 +88,9 @@ class ExclusionsSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects no on the stop-selling-goods page")
@@ -109,8 +109,8 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.continue()
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -119,9 +119,9 @@ class ExclusionsSpec extends BaseSpec {
       Given("the trader accesses the OSS Exclusions Service")
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000029")
-      exclusion.checkJourneyUrl("move-country")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
-      When("the trader selects no on the move-country page")
+      When("the trader selects no on the moving-to-an-eu-country page")
       exclusion.answerRadioButton("no")
 
       And("the trader selects no on the stop-selling-goods page")
@@ -136,8 +136,8 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("stopped-using-service-date")
       exclusion.enterDate("today")
 
-      Then("the trader is on the successful page")
-      exclusion.checkJourneyUrl("successful")
+      Then("the trader is on the leave-request-received page")
+      exclusion.checkJourneyUrl("leave-request-received")
 
     }
 
@@ -147,8 +147,8 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.goToExclusionsJourney()
       auth.loginUsingAuthorityWizard("assistant", "exclusions", "100000002")
 
-      Then("they are correctly redirected to the move-country page")
-      exclusion.checkJourneyUrl("move-country")
+      Then("they are correctly redirected to the moving-to-an-eu-country page")
+      exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
     }
   }
