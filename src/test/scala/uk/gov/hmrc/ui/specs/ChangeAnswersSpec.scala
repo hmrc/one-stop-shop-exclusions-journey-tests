@@ -57,7 +57,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -96,7 +96,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -140,7 +140,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -191,7 +191,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -238,7 +238,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -273,7 +273,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -321,7 +321,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -364,7 +364,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -403,7 +403,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -455,7 +455,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
@@ -506,7 +506,7 @@ class ChangeAnswersSpec extends BaseSpec {
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
-      exclusion.continue()
+      exclusion.submit()
 
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")

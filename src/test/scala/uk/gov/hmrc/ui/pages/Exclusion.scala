@@ -100,8 +100,8 @@ object Exclusion extends BasePage {
   def selectChangeLink(link: String): Unit =
     click(By.cssSelector(s"a[href*=$link]"))
 
-  def continue(): Unit =
-    click(continueButton)
+  def submit(): Unit =
+    click(submitButton)
 
   def goToReturnsJourney(): Unit =
     get(returnsUrl)
