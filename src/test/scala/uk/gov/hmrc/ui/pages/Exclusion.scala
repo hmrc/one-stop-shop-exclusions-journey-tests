@@ -20,7 +20,7 @@ import org.junit.Assert
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait}
 import org.openqa.selenium.{By, Keys}
 import org.scalatest.matchers.dsl.MatcherWords.not.startWith
-import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
+import org.scalatest.matchers.should.Matchers.should
 import uk.gov.hmrc.configuration.TestEnvironment
 import uk.gov.hmrc.selenium.webdriver.Driver
 

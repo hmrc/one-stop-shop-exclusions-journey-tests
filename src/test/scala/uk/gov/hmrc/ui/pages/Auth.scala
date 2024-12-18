@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 import org.scalatest.matchers.dsl.MatcherWords.not.startWith
-import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
+import org.scalatest.matchers.should.Matchers.should
 import uk.gov.hmrc.configuration.TestEnvironment
 
 object Auth extends BasePage {
