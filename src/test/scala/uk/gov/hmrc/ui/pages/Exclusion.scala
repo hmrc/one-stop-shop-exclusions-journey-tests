@@ -62,6 +62,8 @@ object Exclusion extends BasePage {
     val date =
       if (day == "today") {
         LocalDate.now()
+      } else if (day == "mid-month") {
+        LocalDate.now().withDayOfMonth(15)
       } else {
         LocalDate.now().plusDays(1)
       }
