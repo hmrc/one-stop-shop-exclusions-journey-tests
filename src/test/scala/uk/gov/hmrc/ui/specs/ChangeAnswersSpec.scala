@@ -267,9 +267,9 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.selectChangeLink("stopped-selling-goods-date\\?waypoints\\=check-your-answers")
 
-      And("the trader amends the stopped selling goods date to tomorrow")
+      And("the trader amends the stopped selling goods date to mid-month")
       exclusion.checkJourneyUrl("stopped-selling-goods-date\\?waypoints\\=check-your-answers")
-      exclusion.enterDate("tomorrow")
+      exclusion.enterDate("mid-month")
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
@@ -397,9 +397,9 @@ class ChangeAnswersSpec extends BaseSpec {
       exclusion.checkJourneyUrl("check-your-answers")
       exclusion.selectChangeLink("stopped-using-service-date\\?waypoints\\=check-your-answers")
 
-      And("the trader amends the stopped using service date to tomorrow")
+      And("the trader amends the stopped using service date to mid-month")
       exclusion.checkJourneyUrl("stopped-using-service-date\\?waypoints\\=check-your-answers")
-      exclusion.enterDate("tomorrow")
+      exclusion.enterDate("mid-month")
 
       And("the trader continues on the check-your-answers page")
       exclusion.checkJourneyUrl("check-your-answers")
