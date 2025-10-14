@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ class ExclusionsSpec extends BaseSpec {
     Scenario("Trader is moving to an EU country") {
 
       Given("the trader accesses the OSS Exclusions Service")
-      exclusion.goToExclusionsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
       exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
@@ -59,7 +59,7 @@ class ExclusionsSpec extends BaseSpec {
     Scenario("Trader is no longer selling eligible goods") {
 
       Given("the trader accesses the OSS Exclusions Service")
-      exclusion.goToExclusionsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
       exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
@@ -86,7 +86,7 @@ class ExclusionsSpec extends BaseSpec {
     Scenario("Trader is voluntarily leaving the service") {
 
       Given("the trader accesses the OSS Exclusions Service")
-      exclusion.goToExclusionsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000002")
       exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
@@ -117,7 +117,7 @@ class ExclusionsSpec extends BaseSpec {
     Scenario("Trader who has reversed their exclusion can leave the service again") {
 
       Given("the trader accesses the OSS Exclusions Service")
-      exclusion.goToExclusionsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "exclusions", "100000029")
       exclusion.checkJourneyUrl("moving-to-an-eu-country")
 
@@ -136,6 +136,10 @@ class ExclusionsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("stopped-using-service-date")
       exclusion.enterDate("today")
 
+      And("the trader continues on the check-your-answers page")
+      exclusion.checkJourneyUrl("check-your-answers")
+      exclusion.submit()
+
       Then("the trader is on the leave-request-received page")
       exclusion.checkJourneyUrl("leave-request-received")
 
@@ -144,7 +148,7 @@ class ExclusionsSpec extends BaseSpec {
     Scenario("Trader who is an assistant user can access the exclusions service") {
 
       Given("a assistant trader accesses the OSS Exclusions Service")
-      exclusion.goToExclusionsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("assistant", "exclusions", "100000002")
 
       Then("they are correctly redirected to the moving-to-an-eu-country page")

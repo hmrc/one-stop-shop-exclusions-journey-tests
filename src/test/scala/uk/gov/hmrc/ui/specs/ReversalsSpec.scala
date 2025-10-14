@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ class ReversalsSpec extends BaseSpec {
     Scenario("Reversing a self exclusion for trader moving country") {
 
       Given("the trader accesses the OSS Returns Service")
-      exclusion.goToReturnsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "returns", "100000027")
-      exclusion.checkReturnsJourneyUrl("your-account")
+      exclusion.checkReturnsJourneyUrl()
 
       When("the trader clicks on the Cancel your request to leave link")
       exclusion.selectLink("cancel-request-to-leave")
@@ -49,9 +49,9 @@ class ReversalsSpec extends BaseSpec {
     Scenario("Reversing a self exclusion for trader voluntarily leaving service") {
 
       Given("the trader accesses the OSS Returns Service")
-      exclusion.goToReturnsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "returns", "600000018")
-      exclusion.checkReturnsJourneyUrl("your-account")
+      exclusion.checkReturnsJourneyUrl()
 
       When("the trader clicks on the Cancel your request to leave link")
       exclusion.selectLink("cancel-request-to-leave")
@@ -70,9 +70,9 @@ class ReversalsSpec extends BaseSpec {
     Scenario("Reversing a self exclusion for trader no longer supplying eligible goods") {
 
       Given("the trader accesses the OSS Returns Service")
-      exclusion.goToReturnsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "returns", "100000028")
-      exclusion.checkReturnsJourneyUrl("your-account")
+      exclusion.checkReturnsJourneyUrl()
 
       When("the trader clicks on the Cancel your request to leave link")
       exclusion.selectLink("cancel-request-to-leave")
@@ -91,9 +91,9 @@ class ReversalsSpec extends BaseSpec {
     Scenario("HMRC excluded trader is not able to access reversal journey") {
 
       Given("the excluded trader accesses the OSS Returns Service")
-      exclusion.goToReturnsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "returns", "100000030")
-      exclusion.checkReturnsJourneyUrl("your-account")
+      exclusion.checkReturnsJourneyUrl()
 
       When("the trader manually navigates to the reversal journey")
       exclusion.goToReversalsJourney()
@@ -103,6 +103,5 @@ class ReversalsSpec extends BaseSpec {
       exclusion.checkCancelLeaveSchemeError()
 
     }
-
   }
 }

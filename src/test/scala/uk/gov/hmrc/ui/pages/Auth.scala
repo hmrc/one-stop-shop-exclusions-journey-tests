@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
-import org.scalatest.matchers.dsl.MatcherWords.not.startWith
+import org.openqa.selenium.support.ui.ExpectedConditions
 import org.scalatest.matchers.should.Matchers.should
 import uk.gov.hmrc.configuration.TestEnvironment
 
 object Auth extends BasePage {
 
-  private val authUrl: String       = TestEnvironment.url("auth-login-stub") + "/gg-sign-in"
+  private val authUrl: String       = TestEnvironment.url("auth-login-stub") + "/auth-login-stub/gg-sign-in"
   private val exclusionsUrl: String =
     TestEnvironment.url("one-stop-shop-exclusions-frontend") + "/pay-vat-on-goods-sold-to-eu/leave-one-stop-shop"
   private val returnsUrl: String    =
@@ -32,8 +32,6 @@ object Auth extends BasePage {
     ) + "/pay-vat-on-goods-sold-to-eu/northern-ireland-returns-payments"
 
   def loginUsingAuthorityWizard(user: String, journey: String, vrn: String): Unit = {
-
-    getCurrentUrl should startWith(authUrl)
 
     if (journey == "exclusions") {
       sendKeys(By.name("redirectionUrl"), exclusionsUrl)
@@ -57,6 +55,11 @@ object Auth extends BasePage {
 
     click(By.cssSelector("Input[value='Submit']"))
 
+  }
+
+  def goToAuthJourney(): Unit = {
+    get(authUrl)
+    fluentWait.until(ExpectedConditions.urlContains(authUrl))
   }
 
 }

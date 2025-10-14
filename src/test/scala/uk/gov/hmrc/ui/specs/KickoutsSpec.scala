@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,9 @@ class KickoutsSpec extends BaseSpec {
     Scenario("Excluded trader is not able to access self exclusion journey") {
 
       Given("the excluded trader accesses the OSS Returns Service")
-      exclusion.goToReturnsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "returns", "600000013")
-      exclusion.checkReturnsJourneyUrl("your-account")
+      exclusion.checkReturnsJourneyUrl()
 
       When("the trader manually navigates to the self-exclude journey")
       exclusion.goToExclusionsJourney()
@@ -43,9 +43,9 @@ class KickoutsSpec extends BaseSpec {
     Scenario("Non-excluded trader is not able to access reversal journey") {
 
       Given("the excluded trader accesses the OSS Returns Service")
-      exclusion.goToReturnsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "returns", "100000002")
-      exclusion.checkReturnsJourneyUrl("your-account")
+      exclusion.checkReturnsJourneyUrl()
 
       When("the trader manually navigates to the self-exclude journey")
       exclusion.goToReversalsJourney()
@@ -58,9 +58,9 @@ class KickoutsSpec extends BaseSpec {
     Scenario("Failure when reversing a self exclusion for trader no longer selling eligible goods") {
 
       Given("the trader accesses the OSS Returns Service")
-      exclusion.goToReturnsJourney()
+      auth.goToAuthJourney()
       auth.loginUsingAuthorityWizard("user", "returns", "100000300")
-      exclusion.checkReturnsJourneyUrl("your-account")
+      exclusion.checkReturnsJourneyUrl()
 
       When("the trader clicks on the Cancel your request to leave link")
       exclusion.selectLink("cancel-request-to-leave")
@@ -75,6 +75,5 @@ class KickoutsSpec extends BaseSpec {
       exclusion.checkJourneyUrl("cancel-leave-scheme-submission-failure")
 
     }
-
   }
 }

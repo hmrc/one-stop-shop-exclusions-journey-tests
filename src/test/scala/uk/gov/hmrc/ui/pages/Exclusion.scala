@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,7 @@ package uk.gov.hmrc.ui.pages
 import org.junit.Assert
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait}
 import org.openqa.selenium.{By, Keys}
-import org.scalatest.matchers.dsl.MatcherWords.not.startWith
-import org.scalatest.matchers.should.Matchers.should
+import org.scalatest.matchers.should.Matchers.*
 import uk.gov.hmrc.configuration.TestEnvironment
 import uk.gov.hmrc.selenium.webdriver.Driver
 
@@ -44,8 +43,11 @@ object Exclusion extends BasePage {
   def goToReversalsJourney(): Unit =
     get(exclusionsUrl + journeyUrl + "/cancel-leave-scheme")
 
-  def checkJourneyUrl(page: String): Unit =
-    getCurrentUrl should startWith(s"$exclusionsUrl/$journeyUrl/$page")
+  def checkJourneyUrl(page: String): Unit = {
+    val urlToCheck = s"$exclusionsUrl$journeyUrl/$page"
+    fluentWait.until(ExpectedConditions.urlContains(urlToCheck))
+    getCurrentUrl should startWith(urlToCheck)
+  }
 
   def answerRadioButton(answer: String): Unit = {
 
@@ -105,11 +107,11 @@ object Exclusion extends BasePage {
   def submit(): Unit =
     click(submitButton)
 
-  def goToReturnsJourney(): Unit =
-    get(returnsUrl)
-
-  def checkReturnsJourneyUrl(page: String): Unit =
-    getCurrentUrl should startWith(s"$returnsUrl/$returnsJourneyUrl/$page")
+  def checkReturnsJourneyUrl(): Unit = {
+    val urlToCheck = s"$returnsUrl$returnsJourneyUrl"
+    fluentWait.until(ExpectedConditions.urlContains(urlToCheck))
+    getCurrentUrl should startWith(urlToCheck)
+  }
 
   def selectLink(link: String): Unit =
     click(By.id(link))
